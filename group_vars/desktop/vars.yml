@@ -39,3 +39,4 @@ system_packages:
   - python3-psutil
   - fonts-jetbrains-mono
   - fish
+  - build-essential

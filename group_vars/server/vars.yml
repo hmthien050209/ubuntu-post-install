@@ -1,7 +1,6 @@
 system_packages:
   - neovim
   - htop
-  - btop
   - git
   - ca-certificates
   - curl
@@ -15,16 +14,11 @@ system_packages:
   - tar
   - dbus-user-session
   - unzip
-  - libfuse2t64
   - libc6
   - libgcc1
   - libgssapi-krb5-2
-  - libssl3
   - libstdc++6
   - zlib1g
-  - mariadb-server
-  - libmysqlclient-dev
-  - redis-server
 
 # geerlingguy.certbot
 certbot_auto_renew: true
