@@ -1,0 +1,25 @@
+ansible_user: davidhoang
+system_packages:
+  - neovim
+  - htop
+  - btop
+  - git
+  - ca-certificates
+  - curl
+  - wget
+  - neofetch
+  - ufw
+  - fail2ban
+  - openssh-server
+  - python3-dev
+  - python3-pip
+  - tar
+  - dbus-user-session
+  - unzip
+  - libfuse2t64
+  - libc6
+  - libgcc1
+  - libgssapi-krb5-2
+  - libssl3
+  - libstdc++6
+  - zlib1g

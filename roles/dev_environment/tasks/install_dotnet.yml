@@ -1,0 +1,20 @@
+- name: Download the dotnet-install script
+  ansible.builtin.get_url:
+    url: https://builds.dotnet.microsoft.com/dotnet/scripts/v1/dotnet-install.sh
+    dest: /tmp/dotnet-install.sh
+    mode: "0755"
+
+- name: Install .NET latest LTS version
+  ansible.builtin.command: /tmp/dotnet-install.sh -c "LTS" --install-dir "/home/{{ ansible_user }}/.dotnet"
+
+- name: Install .NET latest STS version
+  ansible.builtin.command: /tmp/dotnet-install.sh -c "STS" --install-dir "/home/{{ ansible_user }}/.dotnet"
+
+- name: Install dotnet-ef
+  ansible.builtin.command: /home/{{ ansible_user }}/.dotnet/dotnet tool install --global dotnet-ef
+
+- name: Configure the PATH variable inside ~/.profile
+  ansible.builtin.lineinfile:
+    path: /home/{{ ansible_user }}/.profile
+    line: 'export PATH="$HOME/.dotnet/tools:$PATH"'
+    state: present

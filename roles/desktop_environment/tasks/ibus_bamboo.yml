@@ -1,0 +1,23 @@
+- name: Add BambooEngine ppa repository
+  ansible.builtin.apt_repository:
+    repo: ppa:bamboo-engine/ibus-bamboo
+  become: true
+
+- name: Update the APT cache
+  ansible.builtin.apt:
+    update_cache: true
+  become: true
+
+- name: Install ibus-bamboo
+  ansible.builtin.apt:
+    name:
+      - ibus
+      - ibus-bamboo
+    install_recommends: true
+    state: latest
+  become: true
+
+- name: Configure GNOME to recognize ibus-bamboo
+  ansible.builtin.shell: |
+    env DCONF_PROFILE=ibus dconf write /desktop/ibus/general/preload-engines "['BambooUs', 'Bamboo']"
+    gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us'), ('ibus', 'Bamboo')]"

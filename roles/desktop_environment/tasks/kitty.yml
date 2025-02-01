@@ -1,0 +1,5 @@
+- name: Copy Kitty configs
+  ansible.builtin.copy:
+    src: "assets/kitty/"
+    dest: "/home/{{ ansible_user }}/.config/kitty/"
+    mode: "0755"

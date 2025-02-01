@@ -1,0 +1,23 @@
+- name: Download starship install script
+  ansible.builtin.get_url:
+    url: https://starship.rs/install.sh
+    dest: /tmp/starship.sh
+    mode: "0755"
+  become: true
+
+- name: Install starship
+  ansible.builtin.shell: /tmp/starship.sh -y
+  become: true
+
+- name: Set fish to use starship
+  ansible.builtin.lineinfile:
+    path: /etc/fish/config.fish
+    line: "starship init fish | source"
+    state: present
+  become: true
+
+- name: Change the default shell of {{ ansible_user }} to fish
+  ansible.builtin.user:
+    name: "{{ ansible_user }}"
+    shell: /usr/bin/fish
+  become: true

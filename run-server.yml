@@ -1,0 +1,10 @@
+- name: Setup server hosts
+  hosts: server
+  become: true
+
+  roles:
+    - role: system
+    - role: geerlingguy.security
+    - role: geerlingguy.certbot
+    - role: geerlingguy.docker
+    - role: geerlingguy.nodejs

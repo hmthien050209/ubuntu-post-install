@@ -1,0 +1,10 @@
+- name: Setup desktop hosts
+  hosts: desktop
+
+  roles:
+    - role: system
+    - role: desktop_environment
+    - role: dev_environment
+    - role: geerlingguy.security
+    - role: geerlingguy.docker
+    - role: geerlingguy.nodejs

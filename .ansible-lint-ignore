@@ -1,0 +1,7 @@
+roles/system/tasks/install_packages.yml package-latest
+# The scripts will only change when needed, so we don't need to handle that in Ansible
+roles/dev_environment/tasks/install_dotnet.yml no-changed-when
+roles/dev_environment/tasks/install_rust.yml no-changed-when
+roles/desktop_environment/tasks/autocpufreq.yml no-changed-when
+roles/desktop_environment/tasks/ibus_bamboo.yml no-changed-when
+roles/desktop_environment/tasks/ibus_bamboo.yml package-latest

@@ -1,0 +1,34 @@
+system_packages:
+  - neovim
+  - htop
+  - btop
+  - git
+  - ca-certificates
+  - curl
+  - wget
+  - neofetch
+  - ufw
+  - fail2ban
+  - openssh-server
+  - python3-dev
+  - python3-pip
+  - tar
+  - dbus-user-session
+  - unzip
+  - libfuse2t64
+  - libc6
+  - libgcc1
+  - libgssapi-krb5-2
+  - libssl3
+  - libstdc++6
+  - zlib1g
+  - mariadb-server
+  - libmysqlclient-dev
+  - redis-server
+
+# geerlingguy.certbot
+certbot_auto_renew: true
+certbot_auto_renew_user: "{{ ansible_user | default(lookup('env', 'USER')) }}"
+certbot_auto_renew_hour: "3"
+certbot_auto_renew_minute: "30"
+certbot_auto_renew_options: "--quiet"

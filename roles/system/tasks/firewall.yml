@@ -1,0 +1,25 @@
+- name: Enable UFW (and UFW logging)
+  community.general.ufw:
+    state: enabled
+    logging: "on"
+  become: true
+
+- name: Set UFW to deny incoming requests by default
+  community.general.ufw:
+    default: "deny"
+    direction: "incoming"
+  become: true
+
+- name: Set UFW to allow outgoing requests by default
+  community.general.ufw:
+    default: "allow"
+    direction: "outgoing"
+  become: true
+
+- name: Open specified ports
+  community.general.ufw:
+    rule: "allow"
+    proto: "tcp"
+    port: "{{ item }}"
+  with_items: "{{ open_ports }}"
+  become: true

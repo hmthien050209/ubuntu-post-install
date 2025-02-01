@@ -1,0 +1,107 @@
+- name: Don't show mounts in the dock
+  community.general.dconf:
+    key: "/org/gnome/shell/extensions/dash-to-dock/show-mounts"
+    value: "false"
+    state: present
+
+- name: Disable panel mode
+  community.general.dconf:
+    key: "/org/gnome/shell/extensions/dash-to-dock/extend-height"
+    value: "false"
+    state: present
+
+- name: Set dock position to bottom
+  community.general.dconf:
+    key: "/org/gnome/shell/extensions/dash-to-dock/dock-position"
+    value: '"BOTTOM"'
+    state: present
+
+- name: Auto-hides the dock
+  community.general.dconf:
+    key: "/org/gnome/shell/extensions/dash-to-dock/dock-fixed"
+    value: "false"
+    state: present
+
+- name: Set the desktop's icon size to small
+  community.general.dconf:
+    key: "/org/gnome/shell/extensions/ding/icon-size"
+    value: '"small"'
+    state: present
+
+- name: Set the dock's icon size to 32
+  community.general.dconf:
+    key: "/org/gnome/shell/extensions/dash-to-dock/dash-max-icon-size"
+    value: "32"
+    state: present
+
+- name: Enable dark GTK theme
+  community.general.dconf:
+    key: "/org/gnome/desktop/interface/gtk-theme"
+    value: '"Yaru-dark"'
+    state: present
+
+- name: Prefer dark theme
+  community.general.dconf:
+    key: "/org/gnome/desktop/interface/color-scheme"
+    value: '"prefer-dark"'
+    state: present
+
+- name: Create the background folder
+  ansible.builtin.file:
+    path: "/home/{{ ansible_user }}/.local/share/backgrounds"
+    state: directory
+    mode: "0755"
+
+- name: Copy the background image
+  ansible.builtin.copy:
+    src: "assets/benjamin-voros-phIFdC6lA4E-unsplash.png"
+    dest: "/home/{{ ansible_user }}/.local/share/backgrounds/benjamin-voros-phIFdC6lA4E-unsplash.png"
+    mode: "0755"
+
+- name: Set the background image
+  community.general.dconf:
+    key: "/org/gnome/desktop/background/picture-uri"
+    value: '"file:///home/{{ ansible_user }}/.local/share/backgrounds/benjamin-voros-phIFdC6lA4E-unsplash.png"'
+    state: present
+
+- name: Set the background image (dark)
+  community.general.dconf:
+    key: "/org/gnome/desktop/background/picture-uri-dark"
+    value: '"file:///home/{{ ansible_user }}/.local/share/backgrounds/benjamin-voros-phIFdC6lA4E-unsplash.png"'
+    state: present
+
+- name: Set the background image (screensaver)
+  community.general.dconf:
+    key: "/org/gnome/desktop/screensaver/picture-uri"
+    value: '"file:///home/{{ ansible_user }}/.local/share/backgrounds/benjamin-voros-phIFdC6lA4E-unsplash.png"'
+    state: present
+
+- name: Set the primary color
+  community.general.dconf:
+    key: "/org/gnome/desktop/screensaver/primary-color"
+    value: '"#000000000000"'
+    state: present
+
+- name: Set the secondary color
+  community.general.dconf:
+    key: "/org/gnome/desktop/screensaver/secondary-color"
+    value: '"#000000000000"'
+    state: present
+
+- name: Enable hot-corners
+  community.general.dconf:
+    key: "/org/gnome/desktop/interface/enable-hot-corners"
+    value: "true"
+    state: present
+
+- name: Set the mouse speed to max
+  community.general.dconf:
+    key: "/org/gnome/desktop/peripherals/mouse/speed"
+    value: "1.0"
+    state: present
+
+- name: Enable night light
+  community.general.dconf:
+    key: "/org/gnome/settings-daemon/plugins/color/night-light-enabled"
+    value: "true"
+    state: present

@@ -1,0 +1,12 @@
+# - name: Include tasks from autocpufreq.yml
+# ansible.builtin.include_tasks: autocpufreq.yml
+- name: Include tasks from gnome.yml
+  ansible.builtin.include_tasks: gnome.yml
+- name: Include tasks from ibus_bamboo.yml
+  ansible.builtin.include_tasks: ibus_bamboo.yml
+- name: Include tasks from brave_browser.yml
+  ansible.builtin.include_tasks: brave_browser.yml
+- name: Include tasks from kitty.yml
+  ansible.builtin.include_tasks: kitty.yml
+- name: Include tasks from fish.yml
+  ansible.builtin.include_tasks: fish.yml

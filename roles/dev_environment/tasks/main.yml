@@ -1,0 +1,4 @@
+- name: Include tasks from install_rust.yml
+  ansible.builtin.include_tasks: install_rust.yml
+- name: Include tasks from install_dotnet.yml
+  ansible.builtin.include_tasks: install_dotnet.yml

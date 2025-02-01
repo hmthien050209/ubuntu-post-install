@@ -1,0 +1,31 @@
+# Open ports
+open_ports:
+  - 22
+  - 80
+  - 443
+
+# geerlingguy.security
+security_ssh_port: 22
+security_ssh_password_authentication: "no"
+security_ssh_permit_root_login: "no"
+security_ssh_usedns: "no"
+security_ssh_permit_empty_password: "no"
+security_ssh_challenge_response_auth: "no"
+security_ssh_gss_api_authentication: "no"
+security_ssh_x11_forwarding: "no"
+security_fail2ban_enabled: true
+# geerlingguy.docker
+docker_add_repo: true
+docker_edition: "ce"
+docker_packages_state: present
+docker_apt_release_channel: stable
+docker_apt_arch: "{{ 'arm64' if ansible_architecture == 'aarch64' else 'amd64' }}"
+docker_apt_repository: "deb [arch={{ docker_apt_arch }}{{' signed-by=/etc/apt/keyrings/docker.asc' if add_repository_key is not failed}}] {{ docker_repo_url }}/{{ ansible_distribution | lower }} {{ ansible_distribution_release }} {{ docker_apt_release_channel }}"
+docker_apt_ignore_key_error: True
+docker_apt_gpg_key: "{{ docker_repo_url }}/{{ ansible_distribution | lower }}/gpg"
+docker_apt_filename: "docker"
+docker_users:
+  - "{{ ansible_user }}"
+
+# geerlingguy.nodejs
+nodejs_version: "22.x"

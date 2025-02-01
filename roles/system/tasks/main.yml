@@ -1,0 +1,6 @@
+- name: Include tasks from update.yml
+  ansible.builtin.include_tasks: update.yml
+- name: Include tasks from install_packages.yml
+  ansible.builtin.include_tasks: install_packages.yml
+- name: Include tasks from firewall.yml
+  ansible.builtin.include_tasks: firewall.yml

@@ -1,0 +1,16 @@
+- name: Clone the auto-cpufreq repository
+  ansible.builtin.git:
+    repo: https://github.com/AdnanHodzic/auto-cpufreq
+    dest: /tmp/auto-cpufreq
+    version: "v2.5.0"
+
+- name: Install auto-cpufreq
+  ansible.builtin.shell: |
+    cd /tmp/auto-cpufreq
+    ./auto-cpufreq-installer --install
+  become: true
+
+- name: Configure auto-cpufreq
+  ansible.builtin.shell: |
+    /usr/local/bin/auto-cpufreq --install
+  become: true
