@@ -36,9 +36,16 @@ ansible-playbook run-server.yml -K
 
 ## Features
 
+- Hardens system security
+- Pre-install essential packages
+- Support both desktop and server environments
+- Setup GNOME to desired state
+
 ## License
 
 Licensed under the MIT License.
 Copyright (c) 2025 Minh Thiên Hoàng.
 
 The file [assets/benjamin-voros-phIFdC6lA4E-unsplash.png](assets/benjamin-voros-phIFdC6lA4E-unsplash.png) is transcoded to PNG from the photo by [Benjamin Voros](https://unsplash.com/@vorosbenisop?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/snow-mountain-under-stars-phIFdC6lA4E?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash).
+
+This playbook uses some roles from Jeff Geerling (Thanks Jeff!). Please see [./requirements.yml](./requirements.yml) for more informations.
