@@ -6,7 +6,7 @@
   become: true
 
 - name: Install starship
-  ansible.builtin.shell: /tmp/starship.sh -y
+  ansible.builtin.command: /tmp/starship.sh -y
   become: true
 
 - name: Set fish to use starship
@@ -16,7 +16,7 @@
     state: present
   become: true
 
-- name: Change the default shell of {{ ansible_user }} to fish
+- name: Change the default shell to fish for user {{ ansible_user }}
   ansible.builtin.user:
     name: "{{ ansible_user }}"
     shell: /usr/bin/fish

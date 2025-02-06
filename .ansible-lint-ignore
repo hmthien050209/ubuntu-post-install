@@ -5,3 +5,4 @@ roles/dev_environment/tasks/install_rust.yml no-changed-when
 roles/desktop_environment/tasks/autocpufreq.yml no-changed-when
 roles/desktop_environment/tasks/ibus_bamboo.yml no-changed-when
 roles/desktop_environment/tasks/ibus_bamboo.yml package-latest
+roles/desktop_environment/tasks/fish.yml no-changed-when
